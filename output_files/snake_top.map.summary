@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Tue Dec  9 23:21:11 2025
+Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+Revision Name : snake_top
+Top-level Entity Name : snake_top
+Family : MAX 10
+Total logic elements : 2,409
+    Total combinational functions : 2,407
+    Dedicated logic registers : 902
+Total registers : 902
+Total pins : 62
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

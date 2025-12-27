@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at snake_top.v(173): always construct contains both blocking and non-blocking assignments File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 173

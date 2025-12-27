@@ -1,0 +1,48 @@
+// --------------------------------------
+// game_render.v
+// --------------------------------------
+module game_render(
+    input [9:0] x,
+    input [9:0] y,
+    input visible,
+    input [5:0] snake_x [0:199],
+    input [4:0] snake_y [0:199],
+    input [7:0] length,
+    input [5:0] food_x,
+    input [4:0] food_y,
+    output reg [3:0] red,
+    output reg [3:0] green,
+    output reg [3:0] blue
+);
+
+    // convert VGA pixel → grid cell
+    wire [5:0] cell_x = x >> 4;   // /16
+    wire [4:0] cell_y = y >> 4;   // /16
+
+    // detect snake body
+    integer i;
+    reg snake_here;
+
+    always @(*) begin
+        snake_here = 0;
+        for(i = 0; i < 200; i = i + 1)
+            if(i < length)
+                if(cell_x == snake_x[i] && cell_y == snake_y[i])
+                    snake_here = 1;
+    end
+
+    wire food_here = (cell_x == food_x && cell_y == food_y);
+
+    always @(*) begin
+        if(!visible) begin
+            red = 0; green = 0; blue = 0;
+        end else if(snake_here) begin
+            red = 4'h0; green = 4'hF; blue = 4'h0;   // green snake
+        end else if(food_here) begin
+            red = 4'hF; green = 4'h0; blue = 4'h0;   // red food
+        end else begin
+            red = 4'h1; green = 4'h1; blue = 4'h1;   // gray background
+        end
+    end
+
+endmodule

@@ -1,0 +1,97 @@
+// --------------------------------------
+// snake_top.v  (Main project file)
+// --------------------------------------
+module snake_top(
+    input CLOCK_50,
+    input [3:0] KEY,        // direction buttons (active low)
+    output [3:0] VGA_R,
+    output [3:0] VGA_G,
+    output [3:0] VGA_B,
+    output VGA_HS,
+    output VGA_VS
+);
+
+    wire rst = 0;  // no reset button needed
+
+    wire clk25;
+    wire move_tick;
+
+    clk_div CD(
+        .clk50(CLOCK_50),
+        .rst(0),
+        .clk25(clk25),
+        .slow_tick(move_tick)
+    );
+
+    // VGA timing
+    wire [9:0] x, y;
+    wire visible;
+
+    vga_timing VGA(
+        .clk(clk25),
+        .rst(rst),
+        .x(x),
+        .y(y),
+        .hsync(VGA_HS),
+        .vsync(VGA_VS),
+        .visible(visible)
+    );
+
+    // directional control (KEY is active-low)
+    wire up    = ~KEY[3];
+    wire down  = ~KEY[2];
+    wire left  = ~KEY[1];
+    wire right = ~KEY[0];
+
+    // food random position
+    wire [7:0] rnd;
+    lfsr8 RGEN(.clk(clk25), .rst(rst), .rnd(rnd));
+
+    reg [5:0] food_x = 10;
+    reg [4:0] food_y = 10;
+
+    // Snake storage arrays
+    wire [5:0] snake_x [0:199];
+    wire [4:0] snake_y [0:199];
+    wire [7:0] length;
+    wire food_eaten;
+    wire dead;
+
+    snake_engine SNAKE(
+        .clk(clk25),
+        .rst(rst),
+        .move_tick(move_tick),
+        .up(up), .right(right), .down(down), .left(left),
+        .snake_x(snake_x),
+        .snake_y(snake_y),
+        .length(length),
+        .food_x(food_x),
+        .food_y(food_y),
+        .food_eaten(food_eaten),
+        .dead(dead)
+    );
+
+    // respawn food
+    always @(posedge clk25) begin
+        if(food_eaten) begin
+            food_x <= rnd[5:0] % 40;
+            food_y <= rnd[4:0] % 30;
+        end
+    end
+
+    // renderer
+    game_render RENDER(
+        .x(x),
+        .y(y),
+        .visible(visible),
+        .snake_x(snake_x),
+        .snake_y(snake_y),
+        .length(length),
+        .food_x(food_x),
+        .food_y(food_y),
+        .red(VGA_R),
+        .green(VGA_G),
+        .blue(VGA_B)
+    );
+
+endmodule

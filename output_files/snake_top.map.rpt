@@ -1,0 +1,1059 @@
+Analysis & Synthesis report for snake_top
+Tue Dec  9 23:21:11 2025
+Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: snake_engine:ENGINE
+ 14. Parameter Settings for User Entity Instance: vga_sync:VGA
+ 15. Parameter Settings for User Entity Instance: game_render:RENDER
+ 16. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 17. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 18. Parameter Settings for Inferred Entity Instance: snake_engine:ENGINE|lpm_divide:Mod0
+ 19. Parameter Settings for Inferred Entity Instance: snake_engine:ENGINE|lpm_divide:Mod1
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
+ 23. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Dec  9 23:21:11 2025           ;
+; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
+; Revision Name                      ; snake_top                                       ;
+; Top-level Entity Name              ; snake_top                                       ;
+; Family                             ; MAX 10                                          ;
+; Total logic elements               ; 2,409                                           ;
+;     Total combinational functions  ; 2,407                                           ;
+;     Dedicated logic registers      ; 902                                             ;
+; Total registers                    ; 902                                             ;
+; Total pins                         ; 62                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
+; UFM blocks                         ; 0                                               ;
+; ADC blocks                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C6GES   ;                    ;
+; Top-level entity name                                            ; snake_top          ; snake_top          ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 12          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processors 6-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                           ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                       ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
+; snake_top.v                      ; yes             ; User Verilog HDL File        ; C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v                ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/lpm_divide.tdf           ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/abs_divider.inc          ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/sign_div_unsign.inc      ;         ;
+; aglobal241.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/aglobal241.inc           ;         ;
+; db/lpm_divide_bkl.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/lpm_divide_bkl.tdf      ;         ;
+; db/sign_div_unsign_akh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/sign_div_unsign_akh.tdf ;         ;
+; db/alt_u_div_uee.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/alt_u_div_uee.tdf       ;         ;
+; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/add_sub_t3c.tdf         ;         ;
+; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/add_sub_u3c.tdf         ;         ;
+; db/lpm_divide_8sl.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/lpm_divide_8sl.tdf      ;         ;
+; db/lpm_divide_ckl.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/lpm_divide_ckl.tdf      ;         ;
+; db/sign_div_unsign_bkh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/sign_div_unsign_bkh.tdf ;         ;
+; db/alt_u_div_0fe.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/alt_u_div_0fe.tdf       ;         ;
+; db/lpm_divide_akl.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/lpm_divide_akl.tdf      ;         ;
+; db/sign_div_unsign_9kh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/sign_div_unsign_9kh.tdf ;         ;
+; db/alt_u_div_see.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/alt_u_div_see.tdf       ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 2,409          ;
+;                                             ;                ;
+; Total combinational functions               ; 2407           ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 1357           ;
+;     -- 3 input functions                    ; 890            ;
+;     -- <=2 input functions                  ; 160            ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 2308           ;
+;     -- arithmetic mode                      ; 99             ;
+;                                             ;                ;
+; Total registers                             ; 902            ;
+;     -- Dedicated logic registers            ; 902            ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 62             ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 882            ;
+; Total fan-out                               ; 11184          ;
+; Average fan-out                             ; 3.26           ;
++---------------------------------------------+----------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                  ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                            ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |snake_top                                ; 2407 (45)           ; 902 (27)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 62   ; 0            ; 0          ; |snake_top                                                                                                                     ; snake_top           ; work         ;
+;    |game_render:RENDER|                   ; 763 (763)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|game_render:RENDER                                                                                                  ; game_render         ; work         ;
+;    |hex_decoder:H0|                       ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|hex_decoder:H0                                                                                                      ; hex_decoder         ; work         ;
+;    |hex_decoder:H1|                       ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|hex_decoder:H1                                                                                                      ; hex_decoder         ; work         ;
+;    |lpm_divide:Div0|                      ; 45 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|lpm_divide:Div0                                                                                                     ; lpm_divide          ; work         ;
+;       |lpm_divide_8sl:auto_generated|     ; 45 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|lpm_divide:Div0|lpm_divide_8sl:auto_generated                                                                       ; lpm_divide_8sl      ; work         ;
+;          |sign_div_unsign_akh:divider|    ; 45 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|lpm_divide:Div0|lpm_divide_8sl:auto_generated|sign_div_unsign_akh:divider                                           ; sign_div_unsign_akh ; work         ;
+;             |alt_u_div_uee:divider|       ; 45 (45)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|lpm_divide:Div0|lpm_divide_8sl:auto_generated|sign_div_unsign_akh:divider|alt_u_div_uee:divider                     ; alt_u_div_uee       ; work         ;
+;    |lpm_divide:Mod0|                      ; 48 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|lpm_divide:Mod0                                                                                                     ; lpm_divide          ; work         ;
+;       |lpm_divide_bkl:auto_generated|     ; 48 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|lpm_divide:Mod0|lpm_divide_bkl:auto_generated                                                                       ; lpm_divide_bkl      ; work         ;
+;          |sign_div_unsign_akh:divider|    ; 48 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|lpm_divide:Mod0|lpm_divide_bkl:auto_generated|sign_div_unsign_akh:divider                                           ; sign_div_unsign_akh ; work         ;
+;             |alt_u_div_uee:divider|       ; 48 (48)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|lpm_divide:Mod0|lpm_divide_bkl:auto_generated|sign_div_unsign_akh:divider|alt_u_div_uee:divider                     ; alt_u_div_uee       ; work         ;
+;    |snake_engine:ENGINE|                  ; 1451 (1435)         ; 855 (855)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|snake_engine:ENGINE                                                                                                 ; snake_engine        ; work         ;
+;       |lpm_divide:Mod0|                   ; 7 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|snake_engine:ENGINE|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_ckl:auto_generated|  ; 7 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|snake_engine:ENGINE|lpm_divide:Mod0|lpm_divide_ckl:auto_generated                                                   ; lpm_divide_ckl      ; work         ;
+;             |sign_div_unsign_bkh:divider| ; 7 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|snake_engine:ENGINE|lpm_divide:Mod0|lpm_divide_ckl:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh ; work         ;
+;                |alt_u_div_0fe:divider|    ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|snake_engine:ENGINE|lpm_divide:Mod0|lpm_divide_ckl:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_0fe:divider ; alt_u_div_0fe       ; work         ;
+;       |lpm_divide:Mod1|                   ; 9 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|snake_engine:ENGINE|lpm_divide:Mod1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_akl:auto_generated|  ; 9 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|snake_engine:ENGINE|lpm_divide:Mod1|lpm_divide_akl:auto_generated                                                   ; lpm_divide_akl      ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 9 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|snake_engine:ENGINE|lpm_divide:Mod1|lpm_divide_akl:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh ; work         ;
+;                |alt_u_div_see:divider|    ; 9 (9)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|snake_engine:ENGINE|lpm_divide:Mod1|lpm_divide_akl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_see:divider ; alt_u_div_see       ; work         ;
+;    |vga_sync:VGA|                         ; 41 (41)             ; 20 (20)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake_top|vga_sync:VGA                                                                                                        ; vga_sync            ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                       ;
++-------------------------------------------+----------------------------------------------+
+; Register name                             ; Reason for Removal                           ;
++-------------------------------------------+----------------------------------------------+
+; snake_engine:ENGINE|apple_x[6..9]         ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|apple_y[5..9]         ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|body_segment_on[1..9] ; Stuck at VCC due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[6..9]         ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[5..9]         ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[16..19]       ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[15..19]       ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[26..29]       ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[25..29]       ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[36..39]       ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[35..39]       ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[46..49]       ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[45..49]       ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[56..59]       ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[55..59]       ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[66..69]       ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[65..69]       ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[76..79]       ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[75..79]       ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[86..89]       ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[85..89]       ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[96..99]       ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[95..99]       ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[106..109]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[105..109]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[116..119]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[115..119]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[126..129]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[125..129]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[136..139]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[135..139]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[146..149]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[145..149]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[156..159]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[155..159]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[166..169]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[165..169]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[176..179]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[176..179]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[186..189]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[186..189]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[196..199]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[196..199]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[206..209]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[206..209]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[216..219]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[216..219]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[226..229]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[226..229]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[236..239]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[236..239]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[246..249]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[246..249]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[256..259]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[256..259]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[266..269]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[266..269]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[276..279]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[276..279]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[286..289]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[286..289]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[296..299]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[296..299]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[306..309]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[306..309]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[316..319]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[316..319]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[326..329]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[326..329]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[336..339]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[336..339]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[346..349]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[346..349]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[356..359]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[356..359]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[366..369]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[366..369]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[376..379]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[376..379]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[386..389]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[386..389]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[396..399]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[396..399]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[406..409]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[406..409]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[416..419]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[416..419]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[426..429]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[426..429]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[436..439]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[436..439]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[446..449]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[446..449]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[456..459]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[456..459]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[466..469]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[466..469]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[476..479]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[476..479]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[486..489]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[486..489]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[496..499]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[497..499]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[506..509]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[507..509]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[516..519]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[517..519]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[526..529]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[527..529]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[536..539]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[537..539]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[546..549]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[547..549]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[556..559]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[557..559]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[566..569]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[567..569]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[576..579]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[577..579]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[586..589]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[587..589]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[596..599]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[597..599]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[606..609]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[607..609]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[616..619]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[617..619]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[626..629]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[627..629]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_x[636..639]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[637..639]     ; Stuck at GND due to stuck port data_in       ;
+; snake_engine:ENGINE|snake_y[636]          ; Merged with snake_engine:ENGINE|snake_y[315] ;
+; snake_engine:ENGINE|snake_y[626]          ; Merged with snake_engine:ENGINE|snake_y[305] ;
+; snake_engine:ENGINE|snake_y[616]          ; Merged with snake_engine:ENGINE|snake_y[295] ;
+; snake_engine:ENGINE|snake_y[606]          ; Merged with snake_engine:ENGINE|snake_y[285] ;
+; snake_engine:ENGINE|snake_y[596]          ; Merged with snake_engine:ENGINE|snake_y[275] ;
+; snake_engine:ENGINE|snake_y[586]          ; Merged with snake_engine:ENGINE|snake_y[265] ;
+; snake_engine:ENGINE|snake_y[576]          ; Merged with snake_engine:ENGINE|snake_y[255] ;
+; snake_engine:ENGINE|snake_y[566]          ; Merged with snake_engine:ENGINE|snake_y[245] ;
+; snake_engine:ENGINE|snake_y[556]          ; Merged with snake_engine:ENGINE|snake_y[235] ;
+; snake_engine:ENGINE|snake_y[546]          ; Merged with snake_engine:ENGINE|snake_y[225] ;
+; snake_engine:ENGINE|snake_y[536]          ; Merged with snake_engine:ENGINE|snake_y[215] ;
+; snake_engine:ENGINE|snake_y[526]          ; Merged with snake_engine:ENGINE|snake_y[205] ;
+; snake_engine:ENGINE|snake_y[516]          ; Merged with snake_engine:ENGINE|snake_y[195] ;
+; snake_engine:ENGINE|snake_y[506]          ; Merged with snake_engine:ENGINE|snake_y[185] ;
+; snake_engine:ENGINE|snake_y[496]          ; Merged with snake_engine:ENGINE|snake_y[175] ;
+; Total Number of Removed Registers = 547   ;                                              ;
++-------------------------------------------+----------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                        ;
++----------------------------------+---------------------------+---------------------------------------------------------------------+
+; Register name                    ; Reason for Removal        ; Registers Removed due to This Register                              ;
++----------------------------------+---------------------------+---------------------------------------------------------------------+
+; snake_engine:ENGINE|snake_x[6]   ; Stuck at GND              ; snake_engine:ENGINE|snake_x[16], snake_engine:ENGINE|snake_x[26],   ;
+;                                  ; due to stuck port data_in ; snake_engine:ENGINE|snake_x[36], snake_engine:ENGINE|snake_x[46],   ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[56], snake_engine:ENGINE|snake_x[66],   ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[76], snake_engine:ENGINE|snake_x[86],   ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[96], snake_engine:ENGINE|snake_x[106],  ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[116], snake_engine:ENGINE|snake_x[126], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[136], snake_engine:ENGINE|snake_x[146], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[156], snake_engine:ENGINE|snake_x[166], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[176], snake_engine:ENGINE|snake_x[186], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[196], snake_engine:ENGINE|snake_x[206], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[216], snake_engine:ENGINE|snake_x[226], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[236], snake_engine:ENGINE|snake_x[246], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[256], snake_engine:ENGINE|snake_x[266], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[276], snake_engine:ENGINE|snake_x[286], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[296], snake_engine:ENGINE|snake_x[306], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[316], snake_engine:ENGINE|snake_x[326], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[336], snake_engine:ENGINE|snake_x[346], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[356], snake_engine:ENGINE|snake_x[366], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[376], snake_engine:ENGINE|snake_x[386], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[396], snake_engine:ENGINE|snake_x[406], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[416], snake_engine:ENGINE|snake_x[426], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[436], snake_engine:ENGINE|snake_x[446], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[456], snake_engine:ENGINE|snake_x[466], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[476], snake_engine:ENGINE|snake_x[486], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[496], snake_engine:ENGINE|snake_x[506], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[516], snake_engine:ENGINE|snake_x[526], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[536], snake_engine:ENGINE|snake_x[546], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[556], snake_engine:ENGINE|snake_x[566], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[576], snake_engine:ENGINE|snake_x[586], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[596], snake_engine:ENGINE|snake_x[606], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[616], snake_engine:ENGINE|snake_x[626]  ;
+; snake_engine:ENGINE|snake_y[7]   ; Stuck at GND              ; snake_engine:ENGINE|snake_y[17], snake_engine:ENGINE|snake_y[27],   ;
+;                                  ; due to stuck port data_in ; snake_engine:ENGINE|snake_y[37], snake_engine:ENGINE|snake_y[47],   ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[57], snake_engine:ENGINE|snake_y[67],   ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[77], snake_engine:ENGINE|snake_y[87],   ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[97], snake_engine:ENGINE|snake_y[107],  ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[117], snake_engine:ENGINE|snake_y[127], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[137], snake_engine:ENGINE|snake_y[147], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[157], snake_engine:ENGINE|snake_y[167], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[177], snake_engine:ENGINE|snake_y[187], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[197], snake_engine:ENGINE|snake_y[207], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[217], snake_engine:ENGINE|snake_y[227], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[237], snake_engine:ENGINE|snake_y[247], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[257], snake_engine:ENGINE|snake_y[267], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[277], snake_engine:ENGINE|snake_y[287], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[297], snake_engine:ENGINE|snake_y[307], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[317], snake_engine:ENGINE|snake_y[327], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[337], snake_engine:ENGINE|snake_y[347], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[357], snake_engine:ENGINE|snake_y[367], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[377], snake_engine:ENGINE|snake_y[387], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[397], snake_engine:ENGINE|snake_y[407], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[417], snake_engine:ENGINE|snake_y[427], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[437], snake_engine:ENGINE|snake_y[447], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[457], snake_engine:ENGINE|snake_y[467], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[477], snake_engine:ENGINE|snake_y[487], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[497], snake_engine:ENGINE|snake_y[507], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[517], snake_engine:ENGINE|snake_y[527], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[537], snake_engine:ENGINE|snake_y[547], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[557], snake_engine:ENGINE|snake_y[567], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[577], snake_engine:ENGINE|snake_y[587], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[597], snake_engine:ENGINE|snake_y[607], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[617], snake_engine:ENGINE|snake_y[627]  ;
+; snake_engine:ENGINE|snake_x[27]  ; Stuck at GND              ; snake_engine:ENGINE|snake_x[37], snake_engine:ENGINE|snake_x[47],   ;
+;                                  ; due to stuck port data_in ; snake_engine:ENGINE|snake_x[57], snake_engine:ENGINE|snake_x[67],   ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[77], snake_engine:ENGINE|snake_x[87],   ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[97], snake_engine:ENGINE|snake_x[107],  ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[117], snake_engine:ENGINE|snake_x[127], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[137], snake_engine:ENGINE|snake_x[147], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[157], snake_engine:ENGINE|snake_x[167], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[177], snake_engine:ENGINE|snake_x[187], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[197], snake_engine:ENGINE|snake_x[207], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[217], snake_engine:ENGINE|snake_x[227], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[237], snake_engine:ENGINE|snake_x[247], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[257], snake_engine:ENGINE|snake_x[267], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[277], snake_engine:ENGINE|snake_x[287], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[297], snake_engine:ENGINE|snake_x[307], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[317], snake_engine:ENGINE|snake_x[327], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[337], snake_engine:ENGINE|snake_x[347], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[357], snake_engine:ENGINE|snake_x[367], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[377], snake_engine:ENGINE|snake_x[387], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[397], snake_engine:ENGINE|snake_x[407], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[417], snake_engine:ENGINE|snake_x[427], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[437], snake_engine:ENGINE|snake_x[447], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[457], snake_engine:ENGINE|snake_x[467], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[477], snake_engine:ENGINE|snake_x[487], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[497], snake_engine:ENGINE|snake_x[507], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[517], snake_engine:ENGINE|snake_x[527], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[537], snake_engine:ENGINE|snake_x[547], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[557], snake_engine:ENGINE|snake_x[567], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[577], snake_engine:ENGINE|snake_x[587], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[597], snake_engine:ENGINE|snake_x[607], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[617]                                    ;
+; snake_engine:ENGINE|snake_y[28]  ; Stuck at GND              ; snake_engine:ENGINE|snake_y[38], snake_engine:ENGINE|snake_y[48],   ;
+;                                  ; due to stuck port data_in ; snake_engine:ENGINE|snake_y[58], snake_engine:ENGINE|snake_y[68],   ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[78], snake_engine:ENGINE|snake_y[88],   ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[98], snake_engine:ENGINE|snake_y[108],  ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[118], snake_engine:ENGINE|snake_y[128], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[138], snake_engine:ENGINE|snake_y[148], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[158], snake_engine:ENGINE|snake_y[168], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[178], snake_engine:ENGINE|snake_y[188], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[198], snake_engine:ENGINE|snake_y[208], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[218], snake_engine:ENGINE|snake_y[228], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[238], snake_engine:ENGINE|snake_y[248], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[258], snake_engine:ENGINE|snake_y[268], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[278], snake_engine:ENGINE|snake_y[288], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[298], snake_engine:ENGINE|snake_y[308], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[318], snake_engine:ENGINE|snake_y[328], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[338], snake_engine:ENGINE|snake_y[348], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[358], snake_engine:ENGINE|snake_y[368], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[378], snake_engine:ENGINE|snake_y[388], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[398], snake_engine:ENGINE|snake_y[408], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[418], snake_engine:ENGINE|snake_y[428], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[438], snake_engine:ENGINE|snake_y[448], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[458], snake_engine:ENGINE|snake_y[468], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[478], snake_engine:ENGINE|snake_y[488], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[498], snake_engine:ENGINE|snake_y[508], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[518], snake_engine:ENGINE|snake_y[528], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[538], snake_engine:ENGINE|snake_y[548], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[558], snake_engine:ENGINE|snake_y[568], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[578], snake_engine:ENGINE|snake_y[588], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[598], snake_engine:ENGINE|snake_y[608], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[618]                                    ;
+; snake_engine:ENGINE|snake_y[6]   ; Stuck at GND              ; snake_engine:ENGINE|snake_y[16], snake_engine:ENGINE|snake_y[26],   ;
+;                                  ; due to stuck port data_in ; snake_engine:ENGINE|snake_y[36], snake_engine:ENGINE|snake_y[46],   ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[56], snake_engine:ENGINE|snake_y[66],   ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[76], snake_engine:ENGINE|snake_y[86],   ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[96], snake_engine:ENGINE|snake_y[106],  ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[116], snake_engine:ENGINE|snake_y[126], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[136], snake_engine:ENGINE|snake_y[146], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[156], snake_engine:ENGINE|snake_y[166], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[176], snake_engine:ENGINE|snake_y[186], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[196], snake_engine:ENGINE|snake_y[206], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[216], snake_engine:ENGINE|snake_y[226], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[236], snake_engine:ENGINE|snake_y[246], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[256], snake_engine:ENGINE|snake_y[266], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[276], snake_engine:ENGINE|snake_y[286], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[296], snake_engine:ENGINE|snake_y[306], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[316], snake_engine:ENGINE|snake_y[326], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[336], snake_engine:ENGINE|snake_y[346], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[356], snake_engine:ENGINE|snake_y[366], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[376], snake_engine:ENGINE|snake_y[386], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[396], snake_engine:ENGINE|snake_y[406], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[416], snake_engine:ENGINE|snake_y[426], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[436], snake_engine:ENGINE|snake_y[446], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[456], snake_engine:ENGINE|snake_y[466], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[476], snake_engine:ENGINE|snake_y[486]  ;
+; snake_engine:ENGINE|snake_y[5]   ; Stuck at GND              ; snake_engine:ENGINE|snake_y[15], snake_engine:ENGINE|snake_y[25],   ;
+;                                  ; due to stuck port data_in ; snake_engine:ENGINE|snake_y[35], snake_engine:ENGINE|snake_y[45],   ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[55], snake_engine:ENGINE|snake_y[65],   ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[75], snake_engine:ENGINE|snake_y[85],   ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[95], snake_engine:ENGINE|snake_y[105],  ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[115], snake_engine:ENGINE|snake_y[125], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[135], snake_engine:ENGINE|snake_y[145], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[155], snake_engine:ENGINE|snake_y[165]  ;
+; snake_engine:ENGINE|snake_x[548] ; Stuck at GND              ; snake_engine:ENGINE|snake_x[558], snake_engine:ENGINE|snake_x[568], ;
+;                                  ; due to stuck port data_in ; snake_engine:ENGINE|snake_x[578], snake_engine:ENGINE|snake_x[588], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[598], snake_engine:ENGINE|snake_x[608]  ;
+; snake_engine:ENGINE|snake_y[549] ; Stuck at GND              ; snake_engine:ENGINE|snake_y[559], snake_engine:ENGINE|snake_y[569], ;
+;                                  ; due to stuck port data_in ; snake_engine:ENGINE|snake_y[579], snake_engine:ENGINE|snake_y[589], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_y[599], snake_engine:ENGINE|snake_y[609]  ;
+; snake_engine:ENGINE|snake_x[549] ; Stuck at GND              ; snake_engine:ENGINE|snake_x[559], snake_engine:ENGINE|snake_x[569], ;
+;                                  ; due to stuck port data_in ; snake_engine:ENGINE|snake_x[579], snake_engine:ENGINE|snake_x[589], ;
+;                                  ;                           ; snake_engine:ENGINE|snake_x[599]                                    ;
+; snake_engine:ENGINE|snake_x[9]   ; Stuck at GND              ; snake_engine:ENGINE|snake_x[19]                                     ;
+;                                  ; due to stuck port data_in ;                                                                     ;
+; snake_engine:ENGINE|snake_x[8]   ; Stuck at GND              ; snake_engine:ENGINE|snake_x[18]                                     ;
+;                                  ; due to stuck port data_in ;                                                                     ;
+; snake_engine:ENGINE|snake_x[7]   ; Stuck at GND              ; snake_engine:ENGINE|snake_x[17]                                     ;
+;                                  ; due to stuck port data_in ;                                                                     ;
+; snake_engine:ENGINE|snake_y[9]   ; Stuck at GND              ; snake_engine:ENGINE|snake_y[19]                                     ;
+;                                  ; due to stuck port data_in ;                                                                     ;
+; snake_engine:ENGINE|snake_y[8]   ; Stuck at GND              ; snake_engine:ENGINE|snake_y[18]                                     ;
+;                                  ; due to stuck port data_in ;                                                                     ;
++----------------------------------+---------------------------+---------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 902   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 846   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 59    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------+
+; Inverted Register Statistics                        ;
++-------------------------------------------+---------+
+; Inverted Register                         ; Fan out ;
++-------------------------------------------+---------+
+; snake_engine:ENGINE|snake_length[1]       ; 36      ;
+; snake_engine:ENGINE|snake_length[3]       ; 59      ;
+; snake_engine:ENGINE|head_x[2]             ; 68      ;
+; snake_engine:ENGINE|head_x[4]             ; 68      ;
+; snake_engine:ENGINE|head_y[1]             ; 68      ;
+; snake_engine:ENGINE|head_y[0]             ; 68      ;
+; snake_engine:ENGINE|head_y[2]             ; 68      ;
+; snake_engine:ENGINE|head_y[3]             ; 68      ;
+; snake_engine:ENGINE|apple_x[1]            ; 2       ;
+; snake_engine:ENGINE|apple_x[3]            ; 2       ;
+; snake_engine:ENGINE|apple_y[0]            ; 2       ;
+; snake_engine:ENGINE|apple_y[1]            ; 2       ;
+; snake_engine:ENGINE|apple_y[2]            ; 2       ;
+; snake_engine:ENGINE|snake_x[12]           ; 4       ;
+; snake_engine:ENGINE|snake_x[14]           ; 4       ;
+; snake_engine:ENGINE|snake_y[14]           ; 4       ;
+; snake_engine:ENGINE|snake_x[22]           ; 4       ;
+; snake_engine:ENGINE|snake_x[24]           ; 4       ;
+; snake_engine:ENGINE|snake_y[20]           ; 4       ;
+; snake_engine:ENGINE|snake_y[24]           ; 4       ;
+; snake_engine:ENGINE|snake_x[32]           ; 4       ;
+; snake_engine:ENGINE|snake_x[34]           ; 4       ;
+; snake_engine:ENGINE|snake_y[31]           ; 4       ;
+; snake_engine:ENGINE|snake_y[34]           ; 4       ;
+; snake_engine:ENGINE|snake_x[52]           ; 4       ;
+; snake_engine:ENGINE|snake_x[54]           ; 4       ;
+; snake_engine:ENGINE|snake_y[52]           ; 4       ;
+; snake_engine:ENGINE|snake_y[54]           ; 4       ;
+; snake_engine:ENGINE|snake_x[72]           ; 4       ;
+; snake_engine:ENGINE|snake_x[74]           ; 4       ;
+; snake_engine:ENGINE|snake_y[71]           ; 4       ;
+; snake_engine:ENGINE|snake_y[72]           ; 4       ;
+; snake_engine:ENGINE|snake_y[74]           ; 4       ;
+; snake_engine:ENGINE|snake_x[82]           ; 4       ;
+; snake_engine:ENGINE|snake_x[84]           ; 4       ;
+; snake_engine:ENGINE|snake_y[80]           ; 4       ;
+; snake_engine:ENGINE|snake_y[81]           ; 4       ;
+; snake_engine:ENGINE|snake_y[82]           ; 4       ;
+; snake_engine:ENGINE|snake_y[84]           ; 4       ;
+; snake_engine:ENGINE|snake_x[92]           ; 4       ;
+; snake_engine:ENGINE|snake_x[94]           ; 4       ;
+; snake_engine:ENGINE|snake_y[93]           ; 4       ;
+; snake_engine:ENGINE|snake_y[94]           ; 4       ;
+; snake_engine:ENGINE|snake_x[102]          ; 4       ;
+; snake_engine:ENGINE|snake_x[104]          ; 4       ;
+; snake_engine:ENGINE|snake_y[100]          ; 4       ;
+; snake_engine:ENGINE|snake_y[103]          ; 4       ;
+; snake_engine:ENGINE|snake_y[104]          ; 4       ;
+; snake_engine:ENGINE|snake_x[112]          ; 4       ;
+; snake_engine:ENGINE|snake_x[114]          ; 4       ;
+; snake_engine:ENGINE|snake_y[111]          ; 4       ;
+; snake_engine:ENGINE|snake_y[113]          ; 4       ;
+; snake_engine:ENGINE|snake_y[114]          ; 4       ;
+; snake_engine:ENGINE|snake_x[122]          ; 4       ;
+; snake_engine:ENGINE|snake_x[124]          ; 4       ;
+; snake_engine:ENGINE|snake_y[120]          ; 4       ;
+; snake_engine:ENGINE|snake_y[121]          ; 4       ;
+; snake_engine:ENGINE|snake_y[123]          ; 4       ;
+; snake_engine:ENGINE|snake_y[124]          ; 4       ;
+; snake_engine:ENGINE|snake_x[132]          ; 4       ;
+; snake_engine:ENGINE|snake_x[134]          ; 4       ;
+; snake_engine:ENGINE|snake_y[132]          ; 4       ;
+; snake_engine:ENGINE|snake_y[133]          ; 4       ;
+; snake_engine:ENGINE|snake_y[134]          ; 4       ;
+; snake_engine:ENGINE|snake_x[142]          ; 4       ;
+; snake_engine:ENGINE|snake_x[144]          ; 4       ;
+; snake_engine:ENGINE|snake_y[140]          ; 4       ;
+; snake_engine:ENGINE|snake_y[142]          ; 4       ;
+; snake_engine:ENGINE|snake_y[143]          ; 4       ;
+; snake_engine:ENGINE|snake_y[144]          ; 4       ;
+; snake_engine:ENGINE|snake_x[42]           ; 4       ;
+; snake_engine:ENGINE|snake_x[44]           ; 4       ;
+; snake_engine:ENGINE|snake_y[40]           ; 4       ;
+; snake_engine:ENGINE|snake_y[41]           ; 4       ;
+; snake_engine:ENGINE|snake_y[44]           ; 4       ;
+; snake_engine:ENGINE|snake_x[62]           ; 4       ;
+; snake_engine:ENGINE|snake_x[64]           ; 4       ;
+; snake_engine:ENGINE|snake_y[60]           ; 4       ;
+; snake_engine:ENGINE|snake_y[62]           ; 4       ;
+; snake_engine:ENGINE|snake_y[64]           ; 4       ;
+; snake_engine:ENGINE|snake_x[162]          ; 4       ;
+; snake_engine:ENGINE|snake_x[164]          ; 4       ;
+; snake_engine:ENGINE|snake_y[160]          ; 4       ;
+; snake_engine:ENGINE|snake_y[161]          ; 4       ;
+; snake_engine:ENGINE|snake_y[162]          ; 4       ;
+; snake_engine:ENGINE|snake_y[163]          ; 4       ;
+; snake_engine:ENGINE|snake_y[164]          ; 4       ;
+; snake_engine:ENGINE|snake_x[2]            ; 3       ;
+; snake_engine:ENGINE|snake_x[4]            ; 3       ;
+; snake_engine:ENGINE|snake_y[0]            ; 3       ;
+; snake_engine:ENGINE|snake_y[1]            ; 3       ;
+; snake_engine:ENGINE|snake_y[2]            ; 3       ;
+; snake_engine:ENGINE|snake_y[3]            ; 3       ;
+; snake_engine:ENGINE|snake_x[152]          ; 4       ;
+; snake_engine:ENGINE|snake_x[154]          ; 4       ;
+; snake_engine:ENGINE|snake_y[151]          ; 4       ;
+; snake_engine:ENGINE|snake_y[152]          ; 4       ;
+; snake_engine:ENGINE|snake_y[153]          ; 4       ;
+; snake_engine:ENGINE|snake_y[154]          ; 4       ;
+; snake_engine:ENGINE|snake_x[192]          ; 4       ;
+; Total number of inverted registers = 341* ;         ;
++-------------------------------------------+---------+
+* Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |snake_top|VGA_G           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: snake_engine:ENGINE ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; SNAKE_MAX      ; 64    ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_sync:VGA ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; H_VISIBLE      ; 640   ; Signed Integer                   ;
+; H_FP           ; 16    ; Signed Integer                   ;
+; H_SYNC         ; 96    ; Signed Integer                   ;
+; H_BP           ; 48    ; Signed Integer                   ;
+; H_TOTAL        ; 800   ; Signed Integer                   ;
+; V_VISIBLE      ; 480   ; Signed Integer                   ;
+; V_FP           ; 10    ; Signed Integer                   ;
+; V_SYNC         ; 2     ; Signed Integer                   ;
+; V_BP           ; 33    ; Signed Integer                   ;
+; V_TOTAL        ; 525   ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: game_render:RENDER ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; SNAKE_MAX      ; 64    ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 7              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_bkl ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 7              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_8sl ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: snake_engine:ENGINE|lpm_divide:Mod0 ;
++------------------------+----------------+--------------------------------------------+
+; Parameter Name         ; Value          ; Type                                       ;
++------------------------+----------------+--------------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                                    ;
+; LPM_WIDTHD             ; 6              ; Untyped                                    ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_PIPELINE           ; 0              ; Untyped                                    ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
+; CBXI_PARAMETER         ; lpm_divide_ckl ; Untyped                                    ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
++------------------------+----------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: snake_engine:ENGINE|lpm_divide:Mod1 ;
++------------------------+----------------+--------------------------------------------+
+; Parameter Name         ; Value          ; Type                                       ;
++------------------------+----------------+--------------------------------------------+
+; LPM_WIDTHN             ; 5              ; Untyped                                    ;
+; LPM_WIDTHD             ; 5              ; Untyped                                    ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_PIPELINE           ; 0              ; Untyped                                    ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
+; CBXI_PARAMETER         ; lpm_divide_akl ; Untyped                                    ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
++------------------------+----------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 62                          ;
+; cycloneiii_ff         ; 902                         ;
+;     CLR               ; 808                         ;
+;     ENA               ; 21                          ;
+;     ENA CLR           ; 38                          ;
+;     plain             ; 35                          ;
+; cycloneiii_lcell_comb ; 2410                        ;
+;     arith             ; 99                          ;
+;         2 data inputs ; 55                          ;
+;         3 data inputs ; 44                          ;
+;     normal            ; 2311                        ;
+;         0 data inputs ; 11                          ;
+;         1 data inputs ; 15                          ;
+;         2 data inputs ; 82                          ;
+;         3 data inputs ; 846                         ;
+;         4 data inputs ; 1357                        ;
+;                       ;                             ;
+; Max LUT depth         ; 11.50                       ;
+; Average LUT depth     ; 8.84                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:08     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+    Info: Processing started: Tue Dec  9 23:20:27 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off snake_top -c snake_top
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file de10_lite_golden_top.v
+    Info (12023): Found entity 1: DE10_LITE_Golden_Top File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/DE10_LITE_Golden_Top.v Line: 29
+Info (12021): Found 5 design units, including 5 entities, in source file snake_top.v
+    Info (12023): Found entity 1: snake_top File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 5
+    Info (12023): Found entity 2: snake_engine File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 143
+    Info (12023): Found entity 3: vga_sync File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 251
+    Info (12023): Found entity 4: game_render File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 304
+    Info (12023): Found entity 5: hex_decoder File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 527
+Info (12127): Elaborating entity "snake_top" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at snake_top.v(35): truncated value with size 32 to match size of target (23) File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 35
+Warning (10230): Verilog HDL assignment warning at snake_top.v(119): truncated value with size 32 to match size of target (4) File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 119
+Warning (10230): Verilog HDL assignment warning at snake_top.v(120): truncated value with size 32 to match size of target (4) File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 120
+Warning (10230): Verilog HDL assignment warning at snake_top.v(121): truncated value with size 32 to match size of target (4) File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 121
+Warning (10230): Verilog HDL assignment warning at snake_top.v(127): truncated value with size 32 to match size of target (4) File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 127
+Warning (10230): Verilog HDL assignment warning at snake_top.v(128): truncated value with size 32 to match size of target (4) File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 128
+Info (12128): Elaborating entity "snake_engine" for hierarchy "snake_engine:ENGINE" File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 81
+Warning (10230): Verilog HDL assignment warning at snake_top.v(177): truncated value with size 32 to match size of target (10) File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 177
+Warning (10230): Verilog HDL assignment warning at snake_top.v(178): truncated value with size 32 to match size of target (10) File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 178
+Warning (10230): Verilog HDL assignment warning at snake_top.v(188): truncated value with size 32 to match size of target (10) File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 188
+Warning (10230): Verilog HDL assignment warning at snake_top.v(201): truncated value with size 32 to match size of target (10) File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 201
+Warning (10230): Verilog HDL assignment warning at snake_top.v(202): truncated value with size 32 to match size of target (10) File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 202
+Warning (10230): Verilog HDL assignment warning at snake_top.v(203): truncated value with size 32 to match size of target (10) File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 203
+Warning (10230): Verilog HDL assignment warning at snake_top.v(204): truncated value with size 32 to match size of target (10) File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 204
+Warning (10230): Verilog HDL assignment warning at snake_top.v(224): truncated value with size 32 to match size of target (7) File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 224
+Warning (10230): Verilog HDL assignment warning at snake_top.v(227): truncated value with size 32 to match size of target (10) File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 227
+Warning (10230): Verilog HDL assignment warning at snake_top.v(228): truncated value with size 32 to match size of target (10) File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 228
+Info (12128): Elaborating entity "vga_sync" for hierarchy "vga_sync:VGA" File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 97
+Warning (10230): Verilog HDL assignment warning at snake_top.v(282): truncated value with size 32 to match size of target (10) File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 282
+Warning (10230): Verilog HDL assignment warning at snake_top.v(284): truncated value with size 32 to match size of target (10) File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 284
+Info (12128): Elaborating entity "game_render" for hierarchy "game_render:RENDER" File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 117
+Info (12128): Elaborating entity "hex_decoder" for hierarchy "hex_decoder:H0" File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 130
+Info (278001): Inferred 4 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 128
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 127
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "snake_engine:ENGINE|Mod0" File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 227
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "snake_engine:ENGINE|Mod1" File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 228
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 128
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 128
+    Info (12134): Parameter "LPM_WIDTHN" = "7"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_bkl.tdf
+    Info (12023): Found entity 1: lpm_divide_bkl File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/lpm_divide_bkl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_akh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_akh File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/sign_div_unsign_akh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_uee.tdf
+    Info (12023): Found entity 1: alt_u_div_uee File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/alt_u_div_uee.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/add_sub_t3c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/add_sub_u3c.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 127
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 127
+    Info (12134): Parameter "LPM_WIDTHN" = "7"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_8sl.tdf
+    Info (12023): Found entity 1: lpm_divide_8sl File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/lpm_divide_8sl.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "snake_engine:ENGINE|lpm_divide:Mod0" File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 227
+Info (12133): Instantiated megafunction "snake_engine:ENGINE|lpm_divide:Mod0" with the following parameter: File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 227
+    Info (12134): Parameter "LPM_WIDTHN" = "6"
+    Info (12134): Parameter "LPM_WIDTHD" = "6"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ckl.tdf
+    Info (12023): Found entity 1: lpm_divide_ckl File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/lpm_divide_ckl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_bkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_bkh File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/sign_div_unsign_bkh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_0fe.tdf
+    Info (12023): Found entity 1: alt_u_div_0fe File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/alt_u_div_0fe.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "snake_engine:ENGINE|lpm_divide:Mod1" File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 228
+Info (12133): Instantiated megafunction "snake_engine:ENGINE|lpm_divide:Mod1" with the following parameter: File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 228
+    Info (12134): Parameter "LPM_WIDTHN" = "5"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_akl.tdf
+    Info (12023): Found entity 1: lpm_divide_akl File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/lpm_divide_akl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9kh File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/sign_div_unsign_9kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_see.tdf
+    Info (12023): Found entity 1: alt_u_div_see File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/alt_u_div_see.tdf Line: 27
+Info (13000): Registers with preset signals will power-up high File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 190
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX2[0]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 15
+    Warning (13410): Pin "HEX2[1]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 15
+    Warning (13410): Pin "HEX2[2]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 15
+    Warning (13410): Pin "HEX2[3]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 15
+    Warning (13410): Pin "HEX2[4]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 15
+    Warning (13410): Pin "HEX2[5]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 15
+    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 15
+    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 16
+    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 16
+    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 16
+    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 16
+    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 16
+    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 16
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 16
+    Warning (13410): Pin "HEX4[0]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 17
+    Warning (13410): Pin "HEX4[1]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 17
+    Warning (13410): Pin "HEX4[2]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 17
+    Warning (13410): Pin "HEX4[3]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 17
+    Warning (13410): Pin "HEX4[4]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 17
+    Warning (13410): Pin "HEX4[5]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 17
+    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 17
+    Warning (13410): Pin "HEX5[0]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 19
+    Warning (13410): Pin "HEX5[1]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 19
+    Warning (13410): Pin "HEX5[2]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 19
+    Warning (13410): Pin "HEX5[3]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 19
+    Warning (13410): Pin "HEX5[4]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 19
+    Warning (13410): Pin "HEX5[5]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 19
+    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/snake_top.v Line: 19
+Info (286030): Timing-Driven Synthesis is running
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_bkl:auto_generated|sign_div_unsign_akh:divider|alt_u_div_uee:divider|add_sub_3_result_int[0]~8" File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/alt_u_div_uee.tdf Line: 42
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_bkl:auto_generated|sign_div_unsign_akh:divider|alt_u_div_uee:divider|add_sub_5_result_int[0]~10" File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/alt_u_div_uee.tdf Line: 52
+    Info (17048): Logic cell "lpm_divide:Div0|lpm_divide_8sl:auto_generated|sign_div_unsign_akh:divider|alt_u_div_uee:divider|add_sub_3_result_int[0]~8" File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/alt_u_div_uee.tdf Line: 42
+    Info (17048): Logic cell "lpm_divide:Div0|lpm_divide_8sl:auto_generated|sign_div_unsign_akh:divider|alt_u_div_uee:divider|add_sub_5_result_int[0]~10" File: C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/db/alt_u_div_uee.tdf Line: 52
+Info (144001): Generated suppressed messages file C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/output_files/snake_top.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 2471 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 56 output pins
+    Info (21061): Implemented 2409 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 48 warnings
+    Info: Peak virtual memory: 4906 megabytes
+    Info: Processing ended: Tue Dec  9 23:21:11 2025
+    Info: Elapsed time: 00:00:44
+    Info: Total CPU time (on all processors): 00:00:35
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/mateo/Documents/EECS3201 Labs/Snake Project v4/output_files/snake_top.map.smsg.
+
+

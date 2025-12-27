@@ -1,0 +1,72 @@
+// --------------------------------------
+// snake_engine.v
+// --------------------------------------
+module snake_engine(
+    input clk, 
+    input rst,
+    input move_tick,            // 5–10 Hz
+    input up, right, down, left,
+    output reg [5:0] snake_x [0:199],
+    output reg [4:0] snake_y [0:199],
+    output reg [7:0] length,
+    input  [5:0] food_x,
+    input  [4:0] food_y,
+    output reg food_eaten,
+    output reg dead
+);
+
+    reg [1:0] dir = 2'b01;  // 00=UP 01=RIGHT 10=DOWN 11=LEFT
+
+    // Direction change logic (cannot reverse)
+    always @(posedge clk) begin
+        if(up    && dir != 2'b10) dir <= 2'b00;
+        if(right && dir != 2'b11) dir <= 2'b01;
+        if(down  && dir != 2'b00) dir <= 2'b10;
+        if(left  && dir != 2'b01) dir <= 2'b11;
+    end
+
+    integer i;
+
+    always @(posedge clk or posedge rst) begin
+        if(rst) begin
+            snake_x[0] <= 20;
+            snake_y[0] <= 15;
+            length <= 8'd5;
+            dead <= 0;
+        end else if(move_tick && !dead) begin
+
+            // shift body downwards
+            for(i = 199; i > 0; i = i - 1) begin
+                snake_x[i] <= snake_x[i-1];
+                snake_y[i] <= snake_y[i-1];
+            end
+
+            // move head
+            case(dir)
+                2'b00: snake_y[0] <= snake_y[0] - 1;
+                2'b01: snake_x[0] <= snake_x[0] + 1;
+                2'b10: snake_y[0] <= snake_y[0] + 1;
+                2'b11: snake_x[0] <= snake_x[0] - 1;
+            endcase
+
+            // boundary death
+            if(snake_x[0] > 39 || snake_y[0] > 29)
+                dead <= 1;
+
+            // self-collision
+            for(i = 1; i < 200; i = i + 1)
+                if(i < length)
+                    if(snake_x[0] == snake_x[i] && snake_y[0] == snake_y[i])
+                        dead <= 1;
+
+            // food eaten
+            if(snake_x[0] == food_x && snake_y[0] == food_y) begin
+                length <= length + 1;
+                food_eaten <= 1;
+            end else begin
+                food_eaten <= 0;
+            end
+        end
+    end
+
+endmodule
