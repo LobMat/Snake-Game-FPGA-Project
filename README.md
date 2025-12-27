@@ -31,4 +31,4 @@ The project was developed to strengthen understanding of **synchronous digital s
 
 ---
 
-Please see the project report: [FPGA Snake Report](Final Project Report.pdf)
+Please see the project report: [FPGA Snake Report](Final-Project-Report.pdf)
