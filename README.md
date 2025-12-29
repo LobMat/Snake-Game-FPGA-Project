@@ -6,7 +6,7 @@ This project demonstrates real-time digital design concepts including finite sta
 ---
 
 ## Project Overview
-This project implements Snake without using a CPU or operating system. All gameplay logic, rendering, and input handling are written in **HDL (Verilog/VHDL)** and synthesized onto an FPGA. The game outputs to a **VGA display** and accepts directional input via onboard buttons/switches.
+This project implements Snake without using a CPU or operating system. All gameplay logic, rendering, and input handling are written in **Verilog** and synthesized onto an FPGA. The game outputs to a **VGA display** and accepts directional input via onboard buttons/switches.
 
 The project was developed to strengthen understanding of **synchronous digital systems**, modular hardware design, and FPGA workflows.
 
@@ -25,7 +25,7 @@ The project was developed to strengthen understanding of **synchronous digital s
 
 ## Hardware & Tools
 - **FPGA Board:** *(DE10-Lite)*
-- **HDL:** Verilog / VHDL
+- **HDL:** Verilog
 - **Display Output:** VGA
 - **Tools:** Quartus
 
